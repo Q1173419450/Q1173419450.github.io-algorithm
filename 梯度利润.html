@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" value="" class="inp">
+    <span></span>
+</body>
+<script>
+    // 思维不要顺势，有时候往其他方向想想
+    function comp(){
+        var inp = document.querySelector('.inp');
+        var span = document.querySelector('span');
+        var award = 0;
+        inp.addEventListener('blur',function(){
+            if(inp.value>1000000){
+                award += (inp.value-1000000)*0.01;
+                inp.value = 1000000;
+            }
+            if(inp.value>600000){
+                award += (inp.value-600000)*0.015;
+                inp.value = 600000;
+            }
+            if(inp.value>400000){
+                award += (inp.value-400000)*0.03;
+                inp.value = 400000;
+            }    
+            if(inp.value>200000){
+                award += (inp.value-200000)*0.05;
+                inp.value = 200000;
+                console.log('awardone'+award);
+            }
+            if(inp.value>100000){
+                award += (inp.value-100000)*0.075;
+                inp.value = 100000;
+                console.log('awardone'+award);
+            }
+            if(inp.value<=100000){
+                award += inp.value*0.1
+                console.log('awardtwo'+award);
+            }
+            inp.value = 0;
+            span.innerHTML = award;
+        });
+    }
+    comp();
+</script>
+</html>
