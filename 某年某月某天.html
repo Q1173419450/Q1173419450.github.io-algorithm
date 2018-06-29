@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    /* 
+     *   难点一，判断闰年
+     *  难点二，月份是从O开始的，所以输入值后应当减1
+     */
+    //  方法一
+    window.onload = function(){
+        var iYear = parseInt(prompt("请输入年份"));
+        var iMonth = parseInt(prompt("请输入月份"));
+        var iDate = parseInt(prompt("请输入日期"));
+        var arr = [[31,28,31,30,31,30,31,31,30,31,30,31],[31,29,31,30,31,30,31,31,30,31,30,31]];
+        var ndd = null;
+        iYear%4?ndd=arr[0]:ndd=arr[1];
+        var s = 0;
+        for (let i=0;i<iMonth-1;i++){
+            s += ndd[i];
+        }
+        s += iDate;
+        // alert(s);
+        // console.log(new Date().getMonth());
+    }
+    // 方法二 短路运算
+    function getDays(y,m,d){
+        var days=0;//声明变量days=0
+        //短路逻辑：前一个条件可以得到结论，后续条件不再执行
+        m>11&&(days+=30);
+        m>10&&(days+=31);
+        m>9&&(days+=30);
+        m>8&&(days+=31);
+        m>7&&(days+=31);
+        m>6&&(days+=30);
+        m>5&&(days+=31);
+        m>4&&(days+=30);
+        m>3&&(days+=31);
+        m>2&&(days+=28);
+        m>1&&(days+=31);
+        days+=d;
+        if(m>2 && (y%4==0&&y%100!=0||y%400==0))
+            days++;
+        return days;
+    }
+    alert(getDays(2017,5,9))
+</script>
+</html>
