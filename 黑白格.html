@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    window.onload = function blwh(){
+        for(let i=0;i<7;i++){
+            if(i % 2==0){
+                t = 0;
+            }else{
+                t = 1;
+            }
+            for(let y=0;y<5;y++){
+                if(t == 0){
+                    document.write('*');
+                    t = 1;
+                }else{
+                    document.write('0');
+                    t = 0;
+                }
+                
+                
+            }
+        document.write('</br>')
+        }
+    }
+</script>
+</html>
