@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    //素数概念，一个只能被1和它本身整除的数，称为素数。其他为和数。
+    for(var i = 101 ; i < 200 ; i++)
+    {
+        //1代表是素数，0为非素数
+        var judge = 1;
+        for(var j = 2 ; j < i ; j++)
+        {
+            if(i % j == 0) //可整除，证明不是素数，跳出当前循环，继续外层循环
+            {
+                judge = 0; //0即标记为非素数
+                break;
+            }
+        }
+
+        if(judge)
+        {
+            document.write(i + "<br>");
+        }
+    }
+</script>
+</html>
